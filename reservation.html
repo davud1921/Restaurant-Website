@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet"  href="reservation.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+     <img src="basca.png" alt="LOGO" width="100px" height="100px">
+     <h1>Bašća Kod Ene</h1>
+     <div class="navbar-nav">
+
+      <a href="main.html" target="_blank">
+          <button class="btn btn-primary mx-2">Home</button>
+      </a>
+
+     <a href="menu.html" target="_blank">
+          <button class="btn btn-primary mx-2">Menu</button>
+     </a>
+
+     <a href="reservation.html" target="_blank">
+          <button class="btn btn-primary mx-2">Reservation</button>
+     </a>
+
+     <a href="contact.html" target="_blank">
+          <button class="btn btn-primary mx-2">Contact Us</button>
+     </a>
+    </div>
+</nav>
+    
+<div class="reservation-container">
+    <h2>Make a Reservation</h2>
+<br>
+<form class="reservation-form">
+<div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+</div>
+<div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+</div>
+<div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
+</div>
+<div class="form-group">
+        <label for="date">Reservation Date</label>
+        <input type="date" id="date" class="form-control" required>
+</div>
+<div class="form-group">
+        <label for="time">Reservation Time</label>
+        <input type="time" id="time" class="form-control" required>
+</div>
+<div class="form-group">
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" class="form-control" min="1" max="20" placeholder="Enter number of guests" required>
+</div>
+        <button type="submit" class="btn btn-primary btn-submit">Submit Reservation</button>
+</form>
+</div>
+
+<footer>
+  <p>&copy; Fundations of Web Development - Davud Mahmutović</p>
+</footer>
+</body>
+</html>
