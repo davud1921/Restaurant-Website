@@ -1,30 +1,30 @@
-body { 
-    background-color: #84344f;
+    body { 
+        background-color: #84344f;
     } 
   
     .navbar { 
-    background-color: #000000;
-    height: 100px;
+        background-color: #000000;
+        height: 100px;
     } 
   
     .navbar h1{ 
-    text-align: center;
-    flex-grow: 1;
-    margin-left: 250px;
-    color: white;
-    font-size: 50px;
+        text-align: center;
+        flex-grow: 1;
+        margin-left: 250px;
+        color: white;
+        font-size: 50px;
     } 
   
     .navbar-nav{
-    margin-left: auto;
+        margin-left: auto;
     }
   
     .btn-primary { 
-    background-color: #84344f; border-radius: 10px; border: none; 
+        background-color: #84344f; border-radius: 10px; border: none; 
     } 
   
     .btn-primary:hover {
-    background-color: #461b29;
+        background-color: #461b29;
     }
 
     .reservation-container {
@@ -63,10 +63,33 @@ body {
         border-radius: 8px;
     }
     
-    footer{
+    footer {
         background-color: #000000;
-        text-align: center;
-        color: white;
         padding: 15px 0;
-        }
+        text-align: center;
+    }
+
+    h5 {
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+        color: #fff;
+        margin-left: 1700px;
+            
+    }
+        
+    .social-icons{
+        margin-left: 1755px;
+        display: flex;
+    }
+
+    .social-icon{
+        width: 30px;
+        height: 30px;
+    }
+
+        
+    .social-icon:hover {
+        transform: scale(1.3);
+    }
+        
     
