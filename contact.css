@@ -108,15 +108,108 @@
     .emoji {
         font-size: 24px;
         cursor: pointer;
-        color: gold;
     }
+
     .emoji.dragging {
         opacity: 0.5;
     }
+
     .card-rating {
         min-height: 50px;
         border: 1px dashed #ccc;
         text-align: center;
         line-height: 50px;
     }
+
+    @media (max-width: 1200px) {
+    .navbar h1 {
+        font-size: 40px;
+        margin-left: 0;
+    }
+    .navbar-nav {
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .btn-primary {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+    .navbar h1 {
+        font-size: 30px;
+        margin: 10px 0;
+    }
+    .navbar-nav {
+        flex-direction: column;
+        margin: 0;
+    }
+    .btn-primary {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+
+    .form-section {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .table {
+        width: 90%;
+        font-size: 14px;
+    }
+
+    .GeolocationAPI {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .social-icon {
+        width: 25px;
+        height: 25px;
+    }
+    }
+
+    @media (max-width: 480px) {
+    .navbar h1 {
+        font-size: 24px;
+        padding: 0px !important;
+    }
+
+    .form-section {
+        width: 100%;
+        padding: 15px;
+    }
+
+    h1, h2, h3, h4 {
+        font-size: 18px;
+    }
+
+    .table th, .table td {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .social-icons {
+        margin: 0 auto;
+        flex-direction: row;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+    }
+
         
