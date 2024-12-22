@@ -62,6 +62,24 @@
 </form>
 </div>
 
+<center>
+        <div class="expandable-box" style="width: 600px;">
+                <button class="expand-btn" style="text-align: center;"><b>Policy for cancelling reservations</b></button>
+                <div class="expand-content">
+                        <p>Reservations can be cancelled within 2 hours</p>
+                </div>
+        </div>
+</center>
+<script>
+        document.querySelectorAll('.expand-btn').forEach(button => {
+        button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const content = button.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+        });
+</script>
+
 
 <footer class="footer text-white">
 <div>

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Contact Us - Bašća Kod Ene</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"  href="contact.css">
@@ -53,12 +54,113 @@
             <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
         </div>
         <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Create a password" required>
+            <div id="password-strength" class="mt-2"></div>
+            <small class="form-text text-muted">Your password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.</small>
+        </div>
+        <div class="form-group">
             <label for="message" class="form-label">Message</label>
             <textarea id="message" name="message" rows="5" class="form-control" placeholder="Write your message" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Submit</button>
     </form>
+    <div id="successMessage" class="alert alert-success mt-3" style="display: none;">
+        Your message has been successfully sent!
+    </div>
 </section>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const strengthIndicator = document.getElementById('password-strength');
+
+    passwordInput.addEventListener('input', () => {
+        const value = passwordInput.value;
+        let strength = 0;
+
+        if (value.length >= 8) strength++;
+        if (/[A-Z]/.test(value)) strength++;
+        if (/[a-z]/.test(value)) strength++;
+        if (/[0-9]/.test(value)) strength++;
+        if (/[@$!%*?&#]/.test(value)) strength++;
+
+        const strengthLabels = ["Very Weak", "Weak", "Moderate", "Strong", "Very Strong"];
+        strengthIndicator.textContent = `Password Strength: ${strengthLabels[strength - 1] || ""}`;
+
+        strengthIndicator.style.color = ["red", "orange", "yellow", "blue", "green"][strength - 1] || "black";
+    });
+
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = {
+            fullName: document.getElementById("fullName").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            password: document.getElementById("password").value,
+            message: document.getElementById("message").value
+        };
+
+        
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.ok) {
+                
+                document.getElementById("successMessage").style.display = "block";
+                
+                document.getElementById("contactForm").reset();
+            } else {
+                alert("Failed to send the message. Please try again.");
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred while sending your message. Please try again later.");
+        });
+    });
+</script>
+
+
+<br><br><br><br><br><br><br>
+<div class="container my-4">
+    <center>
+    <button onclick="toggleMap()" style="color: #84344f; border: 0; border-radius: 5px; width: 250px; height: 40px; cursor: pointer; font-size: 16px;">HIDE / SHOW MAP</button>
+    <br><br>
+    </center>
+    <div id="map" class="map-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2876.0985530095977!2d18.43469446217179!3d43.87450963516563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4758cf30a9a277d7%3A0x4b12ed83cfe67fe0!2zQmHFocSNYSBrb2QgRW5l!5e0!3m2!1sen!2sba!4v1734783368440!5m2!1sen!2sba" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleMap() {
+        const mapContainer = document.getElementById("map");
+        const button = document.querySelector("button");
+
+        if (mapContainer.style.display === "none" || mapContainer.style.display === "") {
+            mapContainer.style.display = "block";
+            button.textContent = "Hide Map";
+        } else {
+            mapContainer.style.display = "none";
+            button.textContent = "Show Map";
+        }
+    }
+  </script>
 
     <section>
         <h3>Find Us Here</h3>

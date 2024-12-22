@@ -1,0 +1,30 @@
+[
+    {
+      "username": "Amina",
+      "comment": "Odlican sajt, sve preporuke"
+    },
+    {
+      "username": "Harun",
+      "comment": "Baš mi se sviđa dizajn."
+    },
+    {
+      "username": "Haris",
+      "comment": "Treba dodati još opcija za filtriranje."
+    },
+    {
+        "username": "Kurta",
+        "comment": "Brzina učitavanja stranice je fenomenalna!"
+    },
+    {
+        "username": "Tonka",
+        "comment": "Volim što je stranica jednostavna za korišćenje."
+    },
+    {
+        "username": "Edis",
+        "comment": "Bilo bi dobro dodati još boja na dugmadi za navigaciju."
+    },
+    {
+        "username": "Sara",
+        "comment": "Savršen sajt, samo neka bude još više sadržaja."
+    }
+  ]
