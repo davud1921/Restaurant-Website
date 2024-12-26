@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>Menu - Bašća Kod Ene</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet"  href="menu.css">
@@ -46,6 +47,59 @@
     </ul>
 </div>
 
+<hr>
+<h3 style="color: black; text-align: center;"><i>Our recommendations</i></h3><br>
+<center>
+    <div class="gallery">
+        <img src="hamburger.jpg" class="thumbnail" style="width: 30%;">
+        <img src="pancakes.jpg" class="thumbnail" style="width: 30%;">
+        <img src="pizza.jpg" class="thumbnail" style="width: 30%;">
+    </div>
+</center>
+<div id="modal" class="modal">
+    <span class="close">&times</span>
+    <img class="modal-content" id="modalImage" style="margin-top: 60px;">
+</div>
+
+<script>
+    $(".thumbnail").click(function () {
+        $("#modal").show(); 
+        $("#modalImage").attr("src", $(this).attr("src"));
+    });
+
+    $(".close").click(function () {
+        $("#modal").hide(); 
+    });
+</script>
+
+<style>      
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+    }  
+    .modal-content {
+        display: block;
+        margin: auto;
+        max-width: 80%;
+        max-height: 80%;
+    }
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<br>
 <hr>
 
 <div class="container mt-5">
@@ -130,6 +184,60 @@
 </div>
 </div>
 </div>
+
+<hr><br><br><br>
+
+<h4 style="color: white; font-family: Arial, Helvetica, sans-serif; font-weight: bold; margin-left: 20px;">Comments</h4>
+<ul id="comments-list" style="margin-left: 20px; align-items: left; margin-right: 40px;"></ul>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            
+            $.ajax({
+                url: 'dado.json',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    let commentsList = $('#comments-list');
+                    data.forEach(function (comment, index) {
+                        commentsList.append(`
+                            <li data-index="${index}">
+                                <strong class="username">${comment.username}:</strong> 
+                                <span class="comment-text">${comment.comment}</span>
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </li>
+                        `);
+                    });
+                    commentsList.on('click', '.delete-btn', function () {
+                        let listItem = $(this).closest('li');
+                        listItem.remove();
+                        alert('Komentar uspješno obrisan!');
+                    });
+                    commentsList.on('click', '.edit-btn', function () {
+                        let listItem = $(this).closest('li');
+                        let commentText = listItem.find('.comment-text');
+                        let newComment = prompt('Unesite novi komentar:', commentText.text());
+                        if (newComment) {
+                            commentText.text(newComment);
+                            alert('Komentar uspješno izmijenjen!');
+                        }
+                    });
+                },
+            });
+        </script>
+        <style>
+            .username {
+                color: white;
+            }
+            #comments-list .edit-btn { 
+                border-radius: 10px;
+                margin-left: 8px;
+            }
+            #comments-list .delete-btn { 
+                border-radius: 10px;
+                margin-left: 8px;
+            }
+        </style>
 
 <hr><br><br><br>
 

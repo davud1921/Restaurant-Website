@@ -183,3 +183,36 @@ footer h5 {
     font-size: 0.8rem;
 }
 }
+
+.expandable-box {
+    margin: 10px 0;
+    border: 1px solid#2a1119;
+    border-radius: 8px;
+    background-color: #000000;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .expand-btn {
+    width: 100%;
+    background-color: #5f283a;
+    color: #fff;
+    padding: 20px;
+    text-align: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .expand-btn:hover {
+    background-color: #74394d;
+  }
+  
+  .expand-content {
+    padding: 20px;
+    display: none;
+  }
+  
+  .expand-btn.active + .expand-content {
+    display: block;
+  }
